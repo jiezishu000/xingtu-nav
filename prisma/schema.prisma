@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String        @id @default(cuid())
+  nickname    String?
+  avatar      String?
+  phone       String?       @unique
+  createdAt   DateTime      @default(now())
+  points      String        @default("0")
+  grade       String?
+  province    String?
+  score       Float?
+  rank        Int?
+  profiles    Profile[]
+  pointLogs   PointLog[]
+  userProjects UserProject[]
+  portfolios  Portfolio[]
+}
+
+model Profile {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  answers      Json
+  cityPref     String?
+  schoolLevel  String?
+  majorType    String?
+  familyType   String?
+  riskTier     String?
+  portraitText String?
+  createdAt    DateTime @default(now())
+}
+
+model Portfolio {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  title         String
+  description   String?
+  projectUrl    String?
+  techStack     String[]
+  aiToolsUsed   String[]
+  duration      String?
+  role          String?
+  skills        String[]
+  status        String   @default("in_progress")
+  completedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Project {
+  id           String        @id @default(cuid())
+  name         String
+  level        Int
+  description  String
+  category     String
+  skills       String[]
+  tools        String[]
+  templateUrl  String?
+  difficulty   Int
+  aiPrompt     String?
+  pointsReward String        @default("100000000")
+  userProjects UserProject[]
+}
+
+model UserProject {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id])
+  status      String   @default("in_progress")
+  outputUrl   String?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+}
+
+model PointLog {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  amount      String
+  type        String
+  description String
+  createdAt   DateTime @default(now())
+}
+
+model Prompt {
+  id              String   @id @default(cuid())
+  name            String
+  description     String
+  content         String
+  category        String
+  isFree          Boolean  @default(false)
+  pointsRequired  String   @default("0")
+  usageCount      Int      @default(0)
+  sortOrder       Int      @default(0)
+  methodology     String?
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  userId        String?
+  amount        Int
+  status        String      @default("PENDING") // PENDING / PAID / CANCELLED / EXPIRED
+  packageType   String      // basic / pro / premium
+  grade         String?
+  targetMajor   String?
+  contactInfo   String?
+  layer         String?
+  transactionId String?
+  inviterCode   String?
+  expireTime    DateTime?
+  payTime       DateTime?
+  reportData    Json?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model FunnelEvent {
+  id         String   @id @default(cuid())
+  eventType  String
+  userId     String?
+  page       String
+  variant    String?
+  utmSource  String?
+  utmMedium  String?
+  metadata   Json?
+  ip         String?
+  ua         String?
+  createdAt  DateTime @default(now())
+}
