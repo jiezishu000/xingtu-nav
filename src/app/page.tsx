@@ -9,7 +9,7 @@ const QUICK_ENTRIES = [
   { icon: '🏫', title: '院校查询', desc: '全国985/211院校数据库', href: '/colleges', color: 'from-star-blue to-blue-600' },
   { icon: '📋', title: '专业查询', desc: '本科专业目录与就业数据', href: '/colleges', color: 'from-star-gold to-yellow-600' },
   { icon: '📊', title: '分数线', desc: '历年录取分数与位次', href: '/colleges', color: 'from-star-accent to-purple-600' },
-  { icon: '🤖', title: 'AI志愿咨询', desc: 'DeepSeek AI 智能问答', href: '/profile', color: 'from-green-500 to-emerald-600' },
+  { icon: '🤖', title: 'AI志愿填报', desc: 'AI 生成冲稳保志愿方案', href: '/admission', color: 'from-green-500 to-emerald-600' },
   { icon: '📰', title: '政策解读', desc: '最新高考政策与备考攻略', href: '/prompts', color: 'from-red-500 to-rose-600' },
 ]
 
@@ -100,6 +100,9 @@ export default function HomePage() {
             </button>
           </div>
           <div className="flex gap-4 justify-center mt-4">
+            <Link href="/admission" className="px-8 py-3 bg-star-blue text-white rounded-button font-semibold hover:bg-blue-600 transition-all text-sm shadow-glow">
+              AI 智能填报
+            </Link>
             <Link href="/profile" className="px-8 py-3 bg-star-gold/20 text-star-gold rounded-button font-semibold hover:bg-star-gold/30 transition-all text-sm">
               开始 AI 画像
             </Link>
