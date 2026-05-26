@@ -14,8 +14,6 @@ const NAV_ITEMS = [
   { href: '/portfolio', label: '履历' },
 ]
 
-const PAY_ITEM = { href: '/pay', label: '付费' }
-
 export function Header() {
   const [open, setOpen] = useState(false)
 
@@ -40,12 +38,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link
-            href={PAY_ITEM.href}
-            className="text-sm px-4 py-1.5 rounded-full bg-star-gold/20 text-star-gold border border-star-gold/30 hover:bg-star-gold/30 transition-colors font-medium"
-          >
-            {PAY_ITEM.label}
-          </Link>
         </nav>
 
         {/* Mobile hamburger */}
@@ -70,13 +62,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={PAY_ITEM.href}
-              onClick={() => setOpen(false)}
-              className="text-sm px-4 py-2 rounded-full bg-star-gold/20 text-star-gold border border-star-gold/30 hover:bg-star-gold/30 transition-colors font-medium inline-block self-start"
-            >
-              {PAY_ITEM.label}
-            </Link>
           </nav>
         </div>
       )}

@@ -14,7 +14,7 @@ export default function PromptsPage() {
           <span className="text-star-gold">✦</span> AI 提示词库
         </h1>
         <p className="text-star-muted max-w-xl mx-auto">
-          3个免费引流 + 8个付费深度诊断。基于张雪峰方法论 × AI时代生存指南，
+          11个AI提示词全部免费开放。基于张雪峰方法论 × AI时代生存指南，
           从志愿填报到项目履历，一站式规划你的 AI 时代生存路径。
         </p>
       </div>
@@ -28,23 +28,10 @@ export default function PromptsPage() {
                 <span className="text-xs px-2 py-1 rounded bg-white/10 text-star-muted">
                   {prompt.category}
                 </span>
-                {prompt.isFree ? (
-                  <span className="text-xs px-2 py-1 rounded bg-star-success/20 text-star-success">免费</span>
-                ) : (
-                  <span className="text-xs px-2 py-1 rounded bg-star-gold/20 text-star-gold">
-                    {parseInt(prompt.pointsRequired) >= 1000000
-                      ? `${parseInt(prompt.pointsRequired) / 10000}万积分`
-                      : `${prompt.pointsRequired}积分`}
-                  </span>
-                )}
+                <span className="text-xs px-2 py-1 rounded bg-star-success/20 text-star-success">免费</span>
               </div>
               <h3 className="font-bold mb-2">{prompt.name}</h3>
               <p className="text-star-muted text-sm leading-relaxed flex-1">{prompt.description}</p>
-              {!prompt.isFree && (
-                <div className="mt-3 pt-3 border-t border-white/10">
-                  <span className="text-xs text-star-gold">✦ 付费提示词</span>
-                </div>
-              )}
             </Card>
           </Link>
         ))}

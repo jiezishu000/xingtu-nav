@@ -27,15 +27,7 @@ export default function PromptDetailPage() {
       <div className="animate-slide-up">
         <div className="flex items-center gap-3 mb-4">
           <span className="text-xs px-2 py-1 rounded bg-white/10 text-star-muted">{prompt.category}</span>
-          {prompt.isFree ? (
-            <span className="text-xs px-2 py-1 rounded bg-star-success/20 text-star-success">免费</span>
-          ) : (
-            <span className="text-xs px-2 py-1 rounded bg-star-gold/20 text-star-gold">
-              {parseInt(prompt.pointsRequired) >= 1000000
-                ? `${parseInt(prompt.pointsRequired) / 10000}万积分`
-                : `${prompt.pointsRequired}积分`}
-            </span>
-          )}
+          <span className="text-xs px-2 py-1 rounded bg-star-success/20 text-star-success">免费</span>
         </div>
 
         <h1 className="text-3xl font-bold mb-4">{prompt.name}</h1>
@@ -59,13 +51,6 @@ export default function PromptDetailPage() {
             onClick={() => navigator.clipboard.writeText(prompt.content)}>
             复制提示词
           </Button>
-          {!prompt.isFree && (
-            <Button variant="gold" className="flex-1 max-w-xs">
-              解锁（{parseInt(prompt.pointsRequired) >= 1000000
-                ? `${parseInt(prompt.pointsRequired) / 10000}万`
-                : prompt.pointsRequired}积分）
-            </Button>
-          )}
         </div>
       </div>
     </div>

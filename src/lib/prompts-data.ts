@@ -1,4 +1,4 @@
-// 11个完整提示词 — 3个免费（引流）+ 8个付费（转化）
+// 11个完整提示词 — 全部免费开放
 // 全部基于张雪峰方法论 + gaokao-mentor-wisdom 105条语录
 
 export interface PromptData {
@@ -14,7 +14,6 @@ export interface PromptData {
 }
 
 export const PROMPTS: PromptData[] = [
-  // ═══ 免费（引流钩子） ═══
   {
     id: 'city-school-major',
     name: '城市·学校·专业 权重配置',
@@ -100,8 +99,6 @@ export const PROMPTS: PromptData[] = [
     sortOrder: 3,
     methodology: 'AI时代生存',
   },
-
-  // ═══ 付费提示词（核心转化） ═══
   {
     id: 'four-tracks',
     name: '四类赛道精准定位',
@@ -163,8 +160,8 @@ export const PROMPTS: PromptData[] = [
 - "没有最好的赛道，只有最适合你的赛道"
 - "选赛道就是选城市，选城市就是选人生"`,
     category: '赛道诊断',
-    isFree: false,
-    pointsRequired: '1000000',
+    isFree: true,
+    pointsRequired: '0',
     sortOrder: 4,
     methodology: '四类专业定位',
   },
@@ -213,8 +210,8 @@ export const PROMPTS: PromptData[] = [
 - "最好的志愿规划，是基于你的项目履历倒推"
 - "AI时代，一个人的价值不取决于他的文凭，而取决于他解决问题的能力"`,
     category: '项目履历',
-    isFree: false,
-    pointsRequired: '1000000',
+    isFree: true,
+    pointsRequired: '0',
     sortOrder: 5,
     methodology: '四类专业定位',
   },
@@ -248,8 +245,8 @@ export const PROMPTS: PromptData[] = [
 - "一个好的志愿方案，应该让你无论怎么选都有退路"
 - "不要用现在的认知去判断未来的选择"`,
     category: '志愿规划',
-    isFree: false,
-    pointsRequired: '2000000',
+    isFree: true,
+    pointsRequired: '0',
     sortOrder: 6,
     methodology: '冲稳保三梯度',
   },
@@ -299,8 +296,8 @@ export const PROMPTS: PromptData[] = [
 - "AI替代的不是岗位，是不具备项目能力的人"
 - "在这个时代，唯一的安全感来自于你的学习能力"`,
     category: 'AI趋势',
-    isFree: false,
-    pointsRequired: '1000000',
+    isFree: true,
+    pointsRequired: '0',
     sortOrder: 7,
     methodology: 'AI时代生存',
   },
@@ -356,8 +353,8 @@ export const PROMPTS: PromptData[] = [
 - "四年后没人关心你是什么专业，只关心你能做什么"
 - "被调剂不可怕，可怕的是你因此放弃了努力"`,
     category: '生存指南',
-    isFree: false,
-    pointsRequired: '1000000',
+    isFree: true,
+    pointsRequired: '0',
     sortOrder: 8,
     methodology: '四类专业定位',
   },
@@ -408,8 +405,8 @@ export const PROMPTS: PromptData[] = [
 - "考试前最后一个月，比的不是谁更聪明，而是谁更稳定"
 - "紧张是正常的，适度的紧张让你更专注"`,
     category: '学习规划',
-    isFree: false,
-    pointsRequired: '2000000',
+    isFree: true,
+    pointsRequired: '0',
     sortOrder: 9,
     methodology: 'AI时代生存',
   },
@@ -454,8 +451,8 @@ export const PROMPTS: PromptData[] = [
 - "最好的志愿规划，是家长提供信息，孩子做出选择"
 - "你的任务不是替孩子做选择，而是帮孩子有能力做出好的选择"`,
     category: '家长指南',
-    isFree: false,
-    pointsRequired: '1000000',
+    isFree: true,
+    pointsRequired: '0',
     sortOrder: 10,
     methodology: '家庭教育',
   },
@@ -521,8 +518,8 @@ export const PROMPTS: PromptData[] = [
 - "一个人的价值不取决于他的文凭，而取决于他解决问题的能力"
 - "你做过什么，比你学过什么更重要"`,
     category: '项目制生存',
-    isFree: false,
-    pointsRequired: '5000000',
+    isFree: true,
+    pointsRequired: '0',
     sortOrder: 11,
     methodology: '项目制生存',
   },
@@ -537,12 +534,4 @@ export function getPrompts() {
 
 export function getPromptById(id: string) {
   return PROMPTS.find((p) => p.id === id)
-}
-
-export function getFreePrompts() {
-  return PROMPTS.filter((p) => p.isFree)
-}
-
-export function getPaidPrompts() {
-  return PROMPTS.filter((p) => !p.isFree)
 }

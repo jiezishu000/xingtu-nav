@@ -208,32 +208,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 积分体系 ── */}
+      {/* ── 全部免费 ── */}
       <section className="mb-16 text-center">
         <Card className="max-w-2xl mx-auto animate-slide-up">
-          <h2 className="text-2xl font-bold mb-4">✦ 积分体系</h2>
+          <h2 className="text-2xl font-bold mb-4">✦ 全部功能免费开放</h2>
           <p className="text-star-muted mb-6">
-            签到得100万积分，解锁提示词、AI蓝图、项目模板。
+            所有 AI 提示词、志愿填报、项目蓝图全部免费。
             <br />
-            积累到1亿成为「星座筑梦师」，100亿成为「星云创造主」。
+            积分仅用于记录活跃度，不做任何付费限制。
           </p>
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div>
-              <div className="text-star-gold text-xl font-bold">100万</div>
-              <div className="text-xs text-star-muted">每日签到</div>
+              <div className="text-star-gold text-xl font-bold">免费</div>
+              <div className="text-xs text-star-muted">全部提示词</div>
             </div>
             <div>
-              <div className="text-star-gold text-xl font-bold">1000万</div>
-              <div className="text-xs text-star-muted">AI项目蓝图</div>
+              <div className="text-star-gold text-xl font-bold">免费</div>
+              <div className="text-xs text-star-muted">AI 志愿填报</div>
             </div>
             <div>
-              <div className="text-star-gold text-xl font-bold">100亿</div>
-              <div className="text-xs text-star-muted">星云创造主</div>
+              <div className="text-star-gold text-xl font-bold">免费</div>
+              <div className="text-xs text-star-muted">项目体系</div>
             </div>
           </div>
-          <Link href="/points"
+          <Link href="/prompts"
             className="inline-block px-6 py-3 bg-star-gold text-black rounded-button font-semibold hover:bg-yellow-500 transition-all">
-            了解积分 →
+            开始使用 →
           </Link>
         </Card>
       </section>

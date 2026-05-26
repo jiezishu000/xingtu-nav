@@ -20,13 +20,6 @@ const EARN_RULES = [
   { action: '完成L3项目', points: '10亿', pointsValue: '1000000000' },
 ]
 
-const SPEND_RULES = [
-  { action: '解锁普通提示词', points: '100万', pointsValue: '1000000' },
-  { action: '项目履历模板', points: '200万', pointsValue: '2000000' },
-  { action: '杀手级提示词#11', points: '500万', pointsValue: '5000000' },
-  { action: 'AI项目蓝图生成', points: '1000万', pointsValue: '10000000' },
-]
-
 export default function PointsPage() {
   const [checkedIn, setCheckedIn] = useState(false)
   const [points] = useState('5000000') // 模拟：用户有500万积分
@@ -45,7 +38,7 @@ export default function PointsPage() {
           <span className="text-star-gold">✦</span> 积分中心
         </h1>
         <p className="text-star-muted">
-          签到、做项目、邀请好友赚积分。积分解锁提示词、AI蓝图和项目模板。
+          签到、做项目、邀请好友赚积分。积分体现你的活跃度与贡献。
         </p>
       </div>
 
@@ -58,9 +51,6 @@ export default function PointsPage() {
             {checkedIn ? '✅ 今日已签到' : '签到 +100万'}
           </Button>
         </div>
-        <Link href="/points/shop" className="inline-block mt-4 text-sm text-star-blue hover:underline">
-          积分商城 →
-        </Link>
       </Card>
 
       <div className="grid md:grid-cols-2 gap-8">
@@ -77,18 +67,6 @@ export default function PointsPage() {
           </div>
         </Card>
 
-        {/* 消费规则 */}
-        <Card className="animate-slide-up">
-          <h2 className="font-bold text-lg mb-4">🛒 消费积分</h2>
-          <div className="space-y-3">
-            {SPEND_RULES.map((r) => (
-              <div key={r.action} className="flex justify-between items-center py-2 border-b border-white/5 last:border-0">
-                <span className="text-sm">{r.action}</span>
-                <span className="text-sm font-bold text-star-gold">{r.points}</span>
-              </div>
-            ))}
-          </div>
-        </Card>
       </div>
 
       {/* 称谓体系 */}
