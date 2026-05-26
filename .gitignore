@@ -4,6 +4,3 @@ node_modules/
 .env.local
 *.db
 *.db-journal
-Dockerfile
-docker-compose.yml
-deploy.sh
